@@ -17,14 +17,13 @@ var observeObject = (() => {
     }
 })()
 setTimeout(() => {
-    let rt = document.querySelector('div.gb_cg')
+    let rt = document.querySelector('#gb').children[1].children[3].children[1].children[1]
     rt.childNodes.forEach(a => a.removeAttribute('target'))
     observeObject(rt, muts => {
         muts.forEach(m => {
             console.log(m)
             if (m.addedNodes && m.addedNodes.length > 0) {
                 m.target.children.forEach(c => {
-                    console.log(c)
                     if (c.tagName === 'A' && c.getAttribute('target') === '_blank')
                         c.removeAttribute('target')
                 })
